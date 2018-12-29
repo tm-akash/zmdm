@@ -1,0 +1,377 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 19 May, 2018, 12:11:33 PM
+    Author     : Devilal.T
+*/
+
+.main-sidebar {
+    height: 1200px;
+}
+
+.thumbnail img {
+
+    width: 370px;
+    height: 120px;
+}
+
+
+.myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    width: 300px;
+    height: 300px;
+    transition: 0.3s;
+}
+
+.myImg:hover {opacity: 0.7;}
+
+/* The Modal (background) */
+/*.modal {
+    display: none;  Hidden by default 
+    position: fixed;  Stay in place 
+    z-index: 1; Sit on top 
+    padding-top: 100px;  Location of the box 
+    left: 0;
+    top: 0;
+    width: 100%;  Full width 
+    height: 100%;  Full height 
+    overflow: auto;  Enable scroll if needed 
+    background-color: rgb(0,0,0);  Fallback color 
+    background-color: rgba(0,0,0,.075);  Black w/ opacity 
+}
+
+ Modal Content (Image) 
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: fit-content;
+}
+
+ Caption of Modal Image (Image Text) - Same Width as the Image 
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+ Add Animation - Zoom in the Modal 
+.modal-content, #caption {
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}*/
+
+
+
+/* The Close Button */
+/*.close {
+    position: absolute;
+    top: 75px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}*/
+
+/* 100% Image Width on Smaller Screens */
+
+#load {
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    display: block;
+    opacity: 0.7;
+    background-color: #fff;
+    z-index: 99;
+    text-align: center;
+}
+
+#loading-image {
+    position: absolute;
+    top: 230px;
+    left: 600px;
+    z-index: 100;
+}
+/*    select[size] {
+        height: auto;
+        color: blue;
+         border-bottom-color: red; 
+        border-color: black;
+
+        -webkit-box-direction: 2px;
+        box-shadow: 0 2px 2px rgba(0,0,0,1);
+        border-radius: 2px;
+        margin-bottom: 5px;
+        font-size:18px;
+        padding: 18px 12px 24px 26px;
+        float: left;
+         block-size: 225px; 
+    }*/
+#Operator{
+
+
+    padding: 6px 0px 4px 16px;
+    color: black;
+    box-shadow: 0 2px 2px rgba(0,0,0,1);
+    border-radius: 15px;
+    margin-bottom: 5px;
+    float: left;
+    width: 354px;
+    font-size: 16px;
+}
+/*#Merchant{
+    padding: 6px 0px 4px 16px;
+    color: black;
+    box-shadow: 0 2px 2px rgba(0,0,0,1);
+    border-radius: 15px;
+    margin-bottom: 8px;
+    float: left;
+    width: 310px;
+    font-size: 14px;
+}*/
+/*#fileGst{
+    padding: 3px 9px;
+    border-radius: 15px;
+}
+*/
+
+
+.list-box{
+    display: block;
+    background: #666;
+    width: 354px;
+    box-shadow: 0 2px 2px rgba(0,0,0,1);
+    border-radius: 2px;
+    margin-bottom: 5px;
+    height: auto;
+    float: left;
+    /*        overflow: scroll;*/
+}
+
+.full-list-content{
+    height: 700px;
+    float:right;
+    border-radius: 2px;
+    margin-bottom: 5px;
+    background: #FFF;
+    width:70%;
+
+}
+
+.list-content-img{
+    height: 85px; 
+    width: auto;
+    float: left;
+    margin: 2px;
+    border: #000 solid;
+}
+
+.list-content{
+    display: block;
+    min-height: 50px;
+    background: #fff;
+    width: 350px;
+    box-shadow: 0 2px 2px rgba(0,0,0,1);
+    border-radius: 2px;
+    margin: auto;
+    overflow: auto;
+    font-size: 14px; 
+    color: black;
+}
+
+.list-content:hover{
+    background-color: antiquewhite
+}
+
+.list-content-txt-div{
+    margin: 4px;
+    width: 70%;
+
+}
+.list-content-txt-div-right{
+    width: 37%;
+    margin: 1px;
+    float:right;
+}
+.list-text-label{
+    font-weight: bold;
+    float: left;
+}
+
+
+.list-text-value{
+    font-weight: normal;
+    width: content-box;
+}
+
+.style{
+    width: 619px;
+    padding: 1px 12px 17px 14px;
+    color: #fff;
+    background: #86b1de;
+    height: 42px;
+    list-style-type: none;
+}
+.list-type3{
+    margin:0 auto;
+    width:471px;
+}
+.list-type3 li, .list-type3 a{
+    list-style-type: none;
+    float:left;
+    height:70px;                
+    line-height:35px;
+    position:relative;
+    font-size:15px;
+    margin-bottom: 12px;
+    font-family: 'Raleway', sans-serif;
+    transition: background-color 1.5s ease;
+}
+.list-type3 a{
+    padding:0 60px 0 12px;
+    width: 340px;
+    background:#0089e0;
+    color:#fff;
+    text-decoration:none;
+    -moz-border-radius-bottomright:4px;
+    -webkit-border-bottom-right-radius:4px;
+    border-bottom-right-radius:4px;
+    -moz-border-radius-topright:4px;
+    -webkit-border-top-right-radius:4px;
+    border-top-right-radius:4px;
+}
+
+.list-type3 a:before{
+    content:"";
+    float:left;
+    position:absolute;
+    top:15px;
+    left:-12px;
+    width:0;
+    height:0;
+    border-color:transparent #0089e0 transparent transparent;
+    border-style:solid;
+    border-width: 18px 12px 18px 0;
+}
+
+.list-type3 a:after{
+    content:"";
+    position:absolute;
+    top:32px;
+    left:0;
+    float:left;
+    width:6px;
+    height:6px;
+    -moz-border-radius:2px;
+    -webkit-border-radius:2px;
+    border-radius:2px;
+    background:#fff;
+    -moz-box-shadow:-1px -1px 2px #004977;
+    -webkit-box-shadow:-1px -1px 2px #004977;
+    box-shadow:-1px -1px 2px #004977;
+}
+.list-type3 a:hover{
+    background:#555;
+}
+
+.list-type3 a:hover:before{
+    border-color:transparent #0089e0 transparent transparent;
+}
+
+.list-type1{
+    width:472px;
+    margin:0 auto;
+}
+
+.list-type1 ol{
+    counter-reset: li;
+    list-style: none;
+    *list-style: decimal;
+    font-size: 15px;
+    font-family: 'Raleway', sans-serif;
+    padding: 0;
+    margin-bottom: 4em;
+}
+.list-type1 ol ol{
+    margin: 0 0 0 2em;
+}
+
+.list-type1 a{
+    position: relative;
+    right: 125px;
+    font-size: 16px;
+    list-style-type: none;
+    display: block;
+    width: 540px;
+    padding: .4em .4em .4em 2em;
+    *padding: .4em;
+    margin: .5em 0;
+    background: #93C775;
+    color: #000;
+    text-decoration: none;
+    -moz-border-radius: .3em;
+    -webkit-border-radius: .3em;
+    border-radius: 10em;
+    transition: all .2s ease-in-out;
+}
+
+.list-type1 a:hover{
+    background: #d6d4d4;
+    text-decoration:none;
+    transform: scale(1.1);
+}
+/*
+            .list-type1 a:before{
+                content: counter(li);
+                counter-increment: li;
+                position: absolute;
+                left: -1.3em;
+                top: 50%;
+                margin-top: -1.3em;
+                background:#93C775;
+                height: 2em;
+                width: 2em;
+                line-height: 2em;
+                border: .3em solid #fff;
+                text-align: center;
+                font-weight: bold;
+                -moz-border-radius: 2em;
+                -webkit-border-radius: 2em;
+                border-radius: 2em;
+                color:#FFF;
+            }*/
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)}
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="2.1" xmlns="http://xmlns.jcp.org/xml/ns/persistence" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd">
+  <persistence-unit name="ZMDM" transaction-type="RESOURCE_LOCAL">
+    <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
+    <class>com.zmss.zmdm.entity.Device</class>
+    <class>com.zmss.zmdm.entity.Application</class>
+    <class>com.zmss.zmdm.entity.ProjectFleet</class>
+    <class>com.zmss.zmdm.entity.Profile</class>
+    <class>com.zmss.zmdm.entity.ProfileApplicationMapping</class>
+    <class>com.zmss.zmdm.entity.Admin</class>
+    <class>com.zmss.zmdm.entity.ChangeLog</class>
+    <class>com.zmss.zmdm.entity.State</class>
+    <class>com.zmss.zmdm.entity.District</class>
+    <class>com.zmss.zmdm.entity.District_1</class>
+    <class>com.zmss.zmdm.entity.State_1</class>
+    <class>com.zmss.zmdm.entity.Application_1</class>
+    <exclude-unlisted-classes>false</exclude-unlisted-classes>
+    <properties>
+      <property name="javax.persistence.jdbc.url" value="jdbc:mysql://13.126.200.200:3306/ZMDM"/>
+      <property name="javax.persistence.jdbc.user" value="akash"/>
+      <property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver"/>
+      <property name="javax.persistence.jdbc.password" value="akash1234@#"/>
+    </properties>
+  </persistence-unit>
+</persistence>
