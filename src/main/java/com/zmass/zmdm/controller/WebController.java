@@ -378,14 +378,14 @@ public class WebController {
                 ProfileApplicationMappingJpaController profileApplicationMappingJpaController = new ProfileApplicationMappingJpaController(emf);
                 profileApplicationMappingJpaController.create(profileApplicationMapping);
             }
-            return "profile added successfully";
+            return "Profile added successfully";
 
         } catch (java.lang.NullPointerException npe) {
             npe.printStackTrace();
             message.put("message", "Your session got expired.");
             String logOutMessage = "Your session has expired.";
             logout(request, response, message, logOutMessage);
-            return "Sorry! Your session expired.Please login and try again.";
+            return "Sorry! Your session expired. Please login and try again.";
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -737,10 +737,18 @@ public class WebController {
             DeviceJpaController deviceJpaController = new DeviceJpaController(emf);
             Device deviceInfo = deviceJpaController.findDevice(Integer.parseInt(id));
             ProjectFleetJpaController projectFleetJpaController = new ProjectFleetJpaController(emf);
-            ProjectFleet projectFleet = projectFleetJpaController.findProjectFleet(deviceInfo.getProjectFleetId());
-            Map<String, String> responseString = new LinkedHashMap<>();
-            responseString.put("imei", deviceInfo.getImei());
-            responseString.put("fleetName", projectFleet.getName());
+             Map<String, String> responseString = new LinkedHashMap<>();
+            try{
+                 ProjectFleet projectFleet = projectFleetJpaController.findProjectFleet(deviceInfo.getProjectFleetId());
+                  responseString.put("fleetName", projectFleet.getName());
+            }
+            catch(Exception e){
+//                e.printStackTrace();
+                 responseString.put("fleetName", "N.A.");
+            }
+           
+           
+            responseString.put("imei", deviceInfo.getImei());           
             responseString.put("ownerName", deviceInfo.getOwnerName());
             responseString.put("deviceModel", deviceInfo.getDeviceModel());
             responseString.put("deviceToken", deviceInfo.getDeviceToken());

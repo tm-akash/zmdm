@@ -31,6 +31,33 @@
     }
 </style>
 
+<style>
+    .CellWithComment{
+        position:relative;
+
+    }
+
+    .CellComment{
+        display:none;
+        position:absolute; 
+        z-index:100;
+        border:1px;
+        background-color: #FAFCC7;
+        border-style:solid;
+        border-width:1px;
+        border-color: #000000;
+        padding:3px;
+        color: #000000; 
+        top:25px; 
+        left:20px;
+    }
+
+    .CellWithComment:hover span.CellComment{
+        display:block;
+        width: max-content
+    }
+</style>
+
 
 <style type="text/css">
     .selectRow {
@@ -83,7 +110,7 @@
                         <table id="example" class="table table-hover table-striped" style="width: 100%" >
                             <thead>
                                 <tr>
-                                    <th><a href="#deviceInfo_modal" data-toggle="modal"><img class="addToFleet" id="null" draggable="true" ondragstart="drag(event)" style="width:30px; height:30px" src="images/mobile.png"/></a></th>
+                                    <th class="CellWithComment"><a href="#deviceInfo_modal" data-toggle="modal"><span style="font-weight: normal" class="CellComment">After selecting the device, drag this icon to the fleet you want to put the device into.</span><img class="addToFleet" id="null" draggable="true" ondragstart="drag(event)" style="width:30px; height:30px" src="images/mobile.png"/></a></th>
                                     <th>IMEI</th>
                                     <th>OWNER NAME</th>
                                     <th>LINK TO FLEET</th>                                            
@@ -186,6 +213,9 @@
 
                                     </div>
                                 </div>
+                                <div class="col-md-5" id="deviceInfoLoader" style="display: none">
+                                    <img  src="images/load.gif" style="display: block;position: absolute;margin-left: -71px;margin-right: auto;width: 50% " alt="Please wait...."  /> 
+                                </div>
                                 <div class="col-md-12">
                                     <div class="form-group">
                                         <center> <strong> APPLICATIONS</strong></center>
@@ -207,9 +237,8 @@
                                         <weak id="updateUnInstalledApp"></weak>
                                     </div>
                                 </div>
-
-
                             </div>
+
                         </div>
 
                     </div>
@@ -295,7 +324,7 @@
         intCheck = data.split(",");
         for (i in intCheck) {
 //            alert(isNaN(intCheck[i]));
-            if(isNaN(intCheck[i])){
+            if (isNaN(intCheck[i])) {
                 alert("You are not dropping the mobile icon, Please select the devices you want to transfer to the fleet and then drag the mobile icon to that fleet space.");
                 return false;
             }
@@ -440,6 +469,9 @@
             });
         });
         $('#example tbody').on('click', 'td.dev-info', function () {
+            $('#deviceInfoLoader').show();
+            document.getElementById("updateUnInstalledApp").innerHTML = "";
+            document.getElementById("updateInstalledApp").innerHTML = "";
             var $tr = $(this).closest('tr');
             rowData = $('#example').DataTable().row($tr).data();
             var id = rowData["id"];
@@ -489,6 +521,7 @@
                     document.getElementById("updateLatitude").value = data.latitude;
 //                                                document.getElementById("updateDeviceToken").value = data.deviceToken;
                     //                        window.location.reload();
+                    $('#deviceInfoLoader').hide();
                 }
             });
         });
@@ -526,8 +559,8 @@
     });
     function validate() {
 
-        if (document.getElementById("profileName").value === "") {
-            alert("profile name cannot be blank");
+        if (document.getElementById("profileName").value.trim() === "") {
+            alert("Profile name cannot be blank");
             return false;
         } else {
             var profileName = document.getElementById("profileName").value;

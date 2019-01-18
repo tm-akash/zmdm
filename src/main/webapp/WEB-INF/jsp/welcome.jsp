@@ -9,7 +9,7 @@
 <div class="content-wrapper">
 
     <section class="content">
-     
+     <span class="logo-lg"><b>Welcome </b></span><span class="hidden-xs"><%=(session_home.getAttribute("name"))%></span>
     </section>
 </div>
 <%@include file="../jsp/footer.jsp" %>

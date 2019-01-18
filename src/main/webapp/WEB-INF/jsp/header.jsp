@@ -32,6 +32,20 @@
         <!--   Google Font -->
 
     </head>
+    
+     <%          HttpSession session_home = request.getSession(false);
+
+//        try {
+            response.setHeader("Cache-Control", "no-cache, no-store, must-revalidate"); // HTTP 1.1.
+            response.setHeader("Pragma", "no-cache"); // HTTP 1.0.
+            if (session.getAttribute("email") == null) {
+                out.println("<script>parent.location.href='index'</script>");
+            }
+//            System.out.println("session: " + session_home.getAttribute("name"));
+            if (session_home.getAttribute("email").equals(null)) {
+                response.sendRedirect("index");
+            }
+    %>
     <body class="hold-transition skin-blue sidebar-mini" >
         <div class="wrapper">
             <header  class="main-header">
@@ -106,10 +120,10 @@
                                                             <li><a href="deviceDetails"><i class="fa fa-angle-right"></i> Device</a></li>
                                                             <li><a href="projectFleetDetails"><i class="fa fa-angle-right"></i> Project Fleet</a></li>
                                                         </ul>-->
-                        <li><a href="applicationsDetails"><i class="fa fa-angle-right"></i> Applications</a></li>
-                        <li><a href="profileDetails"><i class="fa fa-angle-right"></i> Profile</a></li>
-                        <li><a href="deviceDetails"><i class="fa fa-angle-right"></i> Device</a></li>
-                        <li><a href="projectFleetDetails"><i class="fa fa-angle-right"></i> Project Fleet</a></li>
+                        <li><a href="applicationsDetails"><i class="fa fa-circle"></i> <span>Applications</span></a></li>
+                        <li><a href="profileDetails"><i class="fa fa-circle"></i><span> Profile</span></a></li>
+                        <li><a href="deviceDetails"><i class="fa fa-circle"></i><span> Device</span></a></li>
+                        <li><a href="projectFleetDetails"><i class="fa fa-circle"></i><span> Project Fleet</span></a></li>
 
                         </li>    
                     </ul>

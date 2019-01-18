@@ -119,7 +119,7 @@
                                                 <div class="col-md-5">
                                                     <div class="form-group">
                                                         <label for="description">Description<red style="color: red">*</red></label>
-                                                        <input type="text" max="60" class="form-control" maxlength="50" path="description" name="description"  id="description" placeholder="Enter description"/>
+                                                        <input type="text" class="form-control" maxlength="45" path="description" name="description"  id="description" placeholder="Enter description"/>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-5">
@@ -384,7 +384,7 @@
         var nameRegex1 = /(<)/;
         var nameRegex2 = /(>)/;
         if (document.getElementById("fleetName").value.trim() === "" || nameRegex1.test(document.getElementById("fleetName").value) || nameRegex2.test(document.getElementById("fleetName").value)) {
-            alert("Fleet name cannot be blank and cannot contain '<','>' symbol.");
+            alert("Fleet name cannot be blank or character length greater than 40 and cannot contain '<','>' symbol.");
             return false;
         }
         if (document.getElementById("description").value.trim().length === 0 || document.getElementById("description").value.trim().length > 45 || nameRegex1.test(document.getElementById("description").value) || nameRegex2.test(document.getElementById("description").value)) {

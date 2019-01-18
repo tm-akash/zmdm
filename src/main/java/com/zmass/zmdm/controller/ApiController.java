@@ -123,7 +123,7 @@ public class ApiController implements Constants {
             if (deviceFromDB == null) {
                 cres = new CommonRes(DEVICE_NOT_FOUND_MESSAGE, DEVICE_NOT_FOUND);
             } else if (deviceFromDB != null) {
-                cres = new CommonRes(DEVICCE_FOUND_MESSAGE, DEVICE_FOUND);
+                cres = new CommonRes(DEVICCE_FOUND_MESSAGE,deviceFromDB, DEVICE_FOUND);
             }
             
         } catch (Exception e) {
@@ -224,7 +224,11 @@ public class ApiController implements Constants {
             try {
                 Device deviceExistOrNot = deviceJpaController.findDeviceByIMEI(device);
                 if (deviceExistOrNot != null) {
+                    Device deviceRequestData = (Device) JsonUtil.fromJson(data, Device.class);
                     deviceExistOrNot.setLastSync(new Date());
+                    deviceExistOrNot.setOwnerName(deviceRequestData.getOwnerName());
+                    deviceExistOrNot.setState(deviceRequestData.getState());
+                    deviceExistOrNot.setDistrict(deviceRequestData.getDistrict());
                     deviceJpaController.edit(deviceExistOrNot);
                     cres = new CommonRes("777", HTTP_SUCCESS);
 //                    return JsonUtil.objToJson(cres);
@@ -244,5 +248,31 @@ public class ApiController implements Constants {
             return encryptRequest(JsonUtil.objToJson(cres));
         }
     }
+    
+//    @RequestMapping(value = "deviceCheck", method = RequestMethod.POST)
+//    public String deviceCheck(@RequestBody String data) throws IOException{
+//       String requestString;
+//        try{
+//            requestString = decryptResponse(data);
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//            cres = new CommonRes("Incorrect request to server", HTTP_SUCCESS);
+//            return encryptRequest(JsonUtil.objToJson(cres));
+//        }
+//        try{
+//            DeviceJpaController deviceJpaController = new DeviceJpaController(emf);
+//           Device device = (Device) JsonUtil.fromJson(requestString, Device.class);
+//           
+//        }
+//        catch(Exception e){
+//            e.printStackTrace();
+//             cres = new CommonRes("Internal server error", HTTP_FAILURE);
+//            return encryptRequest(JsonUtil.objToJson(cres));
+//        }
+//        
+//        
+//       
+//    }
     
 }

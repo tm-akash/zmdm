@@ -466,16 +466,16 @@
     function validate() {
         var nameRegex1 = /(<)/;
         var nameRegex2 = /(>)/;
-        if (document.getElementById("profileName").value === "" || nameRegex1.test(document.getElementById("profileName").value) || nameRegex2.test(document.getElementById("profileName").value)) {
-            alert("profile name cannot be blank and cannot contain '<','>' symbol.");
+        if (document.getElementById("profileName").value.trim() === "" || document.getElementById("profileName").value.trim().length > 40 || nameRegex1.test(document.getElementById("profileName").value) || nameRegex2.test(document.getElementById("profileName").value)) {
+            alert("Profile name cannot be blank or greater than 40 characters and cannot contain '<','>' symbol.");
             return false;
         }
         if (document.getElementById("syncInterval").value < 1 || document.getElementById("syncInterval").value > 15) {
             alert("Sync interval cannot be 0 and cannot be greater than 15");
             return false;
         }
-         if (document.getElementById("description").value.trim().length === 0 || document.getElementById("description").value.trim().length > 45) {
-            alert("Description cannot be empty or greater than 45 characters.");
+         if (document.getElementById("description").value.trim().length === 0 || document.getElementById("description").value.trim().length > 45 || nameRegex1.test(document.getElementById("description").value) || nameRegex2.test(document.getElementById("description").value)) {
+            alert("Description cannot be empty or greater than 45 characters and cannot contain '<','>' symbol.");
             return false;
         }
 
@@ -517,8 +517,8 @@
     function Update() {
         var nameRegex1 = /(<)/;
         var nameRegex2 = /(>)/;
-        if (document.getElementById("UpdateprofileName").value.trim() === "" || nameRegex1.test(document.getElementById("UpdateprofileName").value) || nameRegex2.test(document.getElementById("UpdateprofileName").value)) {
-            alert("profile name cannot be blank and cannot contain '<','>' symbol.");
+        if (document.getElementById("UpdateprofileName").value.trim() === "" || document.getElementById("UpdateprofileName").value.trim().length > 40 || nameRegex1.test(document.getElementById("UpdateprofileName").value) || nameRegex2.test(document.getElementById("UpdateprofileName").value)) {
+            alert("Profile name cannot be blank or greater than 40 characters and cannot contain '<','>' symbol.");
             return false;
         }
         if (document.getElementById("UpdatesyncInterval").value < 1 || document.getElementById("UpdatesyncInterval").value > 15) {
